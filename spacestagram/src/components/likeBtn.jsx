@@ -5,14 +5,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 class LikeBtn extends Component {
   constructor() {
     super();
-    this.state = JSON.parse(window.localStorage.getItem("state")) || {
+    this.state = {
       liked: false,
     };
-  }
-
-  setState(state) {
-    window.localStorage.setItem("state", JSON.stringify(state));
-    super.setState(state);
   }
 
   toggleLike = () => {
