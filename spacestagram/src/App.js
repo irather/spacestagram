@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Photos from "./components/photos";
+import LikeBtn from "./components/likeBtn";
 import axios from "axios";
 import "./App.css";
 
@@ -18,7 +19,7 @@ class App extends Component {
 
     axios
       .get(
-        `https://api.nasa.gov/planetary/apod?date=2020-01-01&api_key=${apiKey}`
+        `https://api.nasa.gov/planetary/apod?date=2021-01-01&api_key=${apiKey}`
       )
       .then((res) => {
         console.log(res);
@@ -34,6 +35,7 @@ class App extends Component {
       <div>
         <h1>Spacestagram</h1>
         <Photos photos={this.state.photos} />
+        <LikeBtn />
       </div>
     );
   }
