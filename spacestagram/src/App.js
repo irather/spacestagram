@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import DatePicker from "./components/datePicker";
+import DateSelector from "./components/dateSelector";
 import Photos from "./components/photos";
 import LikeBtn from "./components/likeBtn";
 import axios from "axios";
+import moment from "moment";
 import "./App.css";
 
 class App extends Component {
@@ -22,7 +23,7 @@ class App extends Component {
       .get(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`)
       .then((res) => {
         this.setState({ photos: res.data, date: res.data.date }, () => {
-          console.log("Successfully setted state");
+          //console.log("Successfully setted state");
         });
       })
       .catch(console.log);
@@ -35,17 +36,22 @@ class App extends Component {
       .get(`https://api.nasa.gov/planetary/apod?date=${date}&api_key=${apiKey}`)
       .then((res) => {
         this.setState({ photos: res.data, date: res.data.date }, () => {
-          console.log("Successfully setted state");
+          //console.log("Successfully setted state");
         });
       })
-      .catch(console.log);
+      .catch(console.log());
   };
 
-  changeDate = (e) => {
-    e.preventDefault();
-    const inputDate = e.target[0].value;
-    this.setState({ date: inputDate });
-    this.getPhoto(inputDate);
+  formatDate = (inputDate) => {
+    const momentDate = moment(inputDate);
+    momentDate.add(1, "d");
+    return momentDate.format("yyyy-MM-DD");
+  };
+
+  changeDate = (inputDate, event) => {
+    const strDate = this.formatDate(inputDate);
+    this.setState({ date: strDate });
+    this.getPhoto(strDate);
   };
 
   toggleLike = () => {
@@ -78,7 +84,12 @@ class App extends Component {
     return (
       <div>
         <h1>Spacestagram</h1>
-        <DatePicker changeDate={this.changeDate} />
+        {this.state.date && (
+          <DateSelector
+            onChange={this.changeDate}
+            date={new Date(this.state.date)}
+          />
+        )}
         <LikeBtn toggleLike={this.toggleLike} getSaved={this.getSaved} />
         <Photos photos={this.state.photos} />
       </div>
