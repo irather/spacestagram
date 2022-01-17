@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import DateSelector from "./components/dateSelector";
 import Photos from "./components/photos";
 import LikeBtn from "./components/likeBtn";
+import NavBar from "./components/navBar";
 import axios from "axios";
 import moment from "moment";
 import "./App.css";
@@ -82,16 +83,27 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Spacestagram</h1>
-        {this.state.date && (
-          <DateSelector
-            onChange={this.changeDate}
-            date={new Date(this.state.date)}
-          />
-        )}
-        <LikeBtn toggleLike={this.toggleLike} getSaved={this.getSaved} />
-        <Photos photos={this.state.photos} />
+      <div className="landing">
+        <NavBar />
+
+        <div className="home-container">
+          <div className="calendar">
+            {this.state.date && (
+              <DateSelector
+                onChange={this.changeDate}
+                date={new Date(this.state.date)}
+              />
+            )}
+          </div>
+
+          <div className="photos">
+            <Photos photos={this.state.photos} />
+          </div>
+
+          <div className="likeButton">
+            <LikeBtn toggleLike={this.toggleLike} getSaved={this.getSaved} />
+          </div>
+        </div>
       </div>
     );
   }

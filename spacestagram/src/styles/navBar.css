@@ -1,0 +1,18 @@
+.navbar {
+  width: 100%;
+  justify-content: left;
+}
+
+.header {
+  width: 100%;
+  justify-content: left;
+  color: #aaa9a9;
+}
+
+h1 {
+  font-family: "Advent Pro", sans-serif;
+}
+
+h4 {
+  font-family: "Advent Pro", sans-serif;
+}

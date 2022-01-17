@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "../styles/likeBtn.css";
 
 const LikeBtn = (props) => {
   const [color, setColor] = useState({ hex: "#dddddd" });
@@ -14,7 +15,7 @@ const LikeBtn = (props) => {
   }, [props]);
 
   return (
-    <div>
+    <div className="likeBtn-container">
       <button className="likeButton" onClick={props.toggleLike}>
         <FontAwesomeIcon
           icon={faHeart}
