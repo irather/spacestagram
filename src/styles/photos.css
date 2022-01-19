@@ -1,25 +1,19 @@
 .apodimg-container {
   display: block;
-  margin-left: 100px;
-  max-width: 75%;
-  padding: 15px;
-  border-radius: 25px;
+  border-radius: 5px;
+  width: 100%;
+  padding-bottom: 20px;
 }
 
 iframe {
   display: block;
-  margin-left: 100px;
-  width: 640px;
-  height: 360px;
-  padding: 15px;
-  border-radius: 25px;
+  border-radius: 5px;
+  padding-bottom: 20px;
 }
 
 p,
 h3 {
   font-family: "Advent Pro", sans-serif;
   display: block;
-  margin-left: 110px;
-  margin-right: 20px;
   text-align: justify;
 }

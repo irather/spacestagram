@@ -9,12 +9,12 @@ const DateSelector = (props) => {
   maxDate.add(-1, "d");
 
   return (
-    <div className="calendar-container">
-      <h4>Please select a date from the calendar to view an APOD: </h4>
+    <div>
       <Calendar
         onChange={props.onChange}
         value={props.date}
         maxDate={maxDate.toDate()}
+        className="dateSelector"
       />
     </div>
   );

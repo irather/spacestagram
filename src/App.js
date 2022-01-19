@@ -5,7 +5,9 @@ import LikeBtn from "./components/likeBtn";
 import NavBar from "./components/navBar";
 import axios from "axios";
 import moment from "moment";
+import { Container, Row, Col } from "react-bootstrap";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends Component {
   constructor() {
@@ -83,28 +85,34 @@ class App extends Component {
 
   render() {
     return (
-      <div className="landing">
-        <NavBar />
+      <Container fluid>
+        <div className="landing">
+          <Row>
+            <NavBar />
+          </Row>
 
-        <div className="home-container">
-          <div className="calendar">
-            {this.state.date && (
-              <DateSelector
-                onChange={this.changeDate}
-                date={new Date(this.state.date)}
-              />
-            )}
-          </div>
+          <div className="home-container">
+            <Row>
+              <Col lg="4" md="6" sm="12">
+                {this.state.date && (
+                  <DateSelector
+                    onChange={this.changeDate}
+                    date={new Date(this.state.date)}
+                  />
+                )}
+              </Col>
 
-          <div className="photos">
-            <Photos photos={this.state.photos} />
-          </div>
-
-          <div className="likeButton">
-            <LikeBtn toggleLike={this.toggleLike} getSaved={this.getSaved} />
+              <Col lg="8" md="6" sm="12">
+                <LikeBtn
+                  toggleLike={this.toggleLike}
+                  getSaved={this.getSaved}
+                />
+                <Photos photos={this.state.photos} />
+              </Col>
+            </Row>
           </div>
         </div>
-      </div>
+      </Container>
     );
   }
 }
