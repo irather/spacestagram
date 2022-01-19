@@ -4,7 +4,7 @@ Hello! Welcome to Spacestagram! This React JS application lets you select a date
 
 # How to run
 
-The way to run this app is to clone this repo, and then in your terminal run the following commands, "npm install" followed by "npm start". The app will then be viewable on http://localhost:3000.
+The way to run this app is to clone this repo, and then in your terminal run the following commands, "npm install" followed by "npm start". The app will then be viewable on http://localhost:3000. Please ensure that both NodeJS and ReactJS are installed on your environment before running the app.
 
 # How to view
 
